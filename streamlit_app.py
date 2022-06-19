@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 
 
+st.title("Home Page")
+
 st.write("""
 # My first App Hello world!*
 """)
