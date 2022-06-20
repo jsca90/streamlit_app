@@ -22,7 +22,7 @@ counts = [174, 163, 161, 168, 151, 156, 158, 154, 132, 162, 160, 169, 172,
         174, 143, 139, 151, 160, 142, 169, 177, 155, 156, 163, 162, 168,
         163, 142, 156, 180, 157, 158]
 
-res = pd.DataFrame(index=values, data=counts)
+res = pd.DataFrame(index=values, data=counts, columns=["당첨횟수"])
 st.dataframe(res, height=400, width=400)
 
 st.bar_chart(res, height=400, width=400)
