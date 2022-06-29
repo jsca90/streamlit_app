@@ -4,11 +4,18 @@ import requests
 import json
 from streamlit_folium import st_folium
 
-r = requests.get('https://raw.githubusercontent.com/vuski/admdongkor/master/ver20220401/HangJeongDong_ver20220401.geojson')
-c = r.content
-emd = json.loads(c)
+@st.cache
+def load_data():
+    r = requests.get('https://raw.githubusercontent.com/vuski/admdongkor/master/ver20220401/HangJeongDong_ver20220401.geojson')
+    c = r.content
+    emd = json.loads(c)
+    return emd
+
+emd = load_data()
 
 st.write("천안시 Geo_Json")
+
+
 
 m = folium.Map(
     location=[36.8044654, 127.2274944],
