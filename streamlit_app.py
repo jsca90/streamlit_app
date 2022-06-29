@@ -2,6 +2,7 @@ import streamlit as st
 import folium
 import requests
 import json
+from streamlit_folium import st_folium
 
 r = requests.get('https://raw.githubusercontent.com/vuski/admdongkor/master/ver20220401/HangJeongDong_ver20220401.geojson')
 c = r.content
@@ -15,12 +16,12 @@ m = folium.Map(
     tiles='cartodbpositron',
     
 )
-# try:
-#     for i in emd['features']:
-#         if i['properties']['temp'].startswith('천안시'):
-#             folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+try:
+    for i in emd['features']:
+        if i['properties']['temp'].startswith('천안시'):
+            folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
     
-# except Exception as e:
-#     print(e)
+except Exception as e:
+    print(e)
 
-# st.map(m)
+st_data = st_folium(m, width = 725)
