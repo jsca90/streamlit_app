@@ -1,37 +1,27 @@
-
 import streamlit as st
-import pandas as pd
-import numpy as np
+from streamlit_folium import st_folium
+import folium
+import requests
+import json
 
-# df = pd.read_excel('excel.xlsx', header=None)
-# df = df.rename(columns=df.iloc[0]).drop(index=0).reset_index(drop=True)
-# df = df.astype(int)
+r = requests.get('https://raw.githubusercontent.com/vuski/admdongkor/master/ver20220401/HangJeongDong_ver20220401.geojson')
+c = r.content
+emd = json.loads(c)
 
-# arr = np.array(df)
-# u, indices = np.unique(arr, return_index=True)
-# values, counts = np.unique(arr, return_counts=True)
+st.write("천안시 Geo_Json")
 
-# st.title("Lotto Analysis")
-# df.columns = df.columns.astype(str)
+m = folium.Map(
+    location=[36.8044654, 127.2274944],
+    zoom_start=12, 
+    tiles='cartodbpositron',
+    
+)
+try:
+    for i in emd['features']:
+        if i['properties']['temp'].startswith('천안시'):
+            folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+    
+except Exception as e:
+    print(e)
 
-values= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-        20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
-        37, 38, 39, 40, 41, 42, 43, 44, 45]
-counts = [174, 163, 161, 168, 151, 156, 158, 154, 132, 162, 160, 169, 172,
-        164, 158, 158, 172, 168, 153, 166, 160, 130, 141, 162, 149, 164,
-        174, 143, 139, 151, 160, 142, 169, 177, 155, 156, 163, 162, 168,
-        163, 142, 156, 180, 157, 158]
-
-res = pd.DataFrame(index=values, data=counts, columns=["당첨횟수"])
-st.dataframe(res, height=400, width=400)
-
-st.bar_chart(res, height=400, width=400)
-
-
-
-
-# df = pd.DataFrame(
-#      np.random.randn(1000, 2) / [50, 50] + [36.819044, 127.114893],
-#      columns=['lat', 'lon'])
-
-# st.map(df)
+st_folium(m, width = 725)
