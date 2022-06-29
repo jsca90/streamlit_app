@@ -15,12 +15,12 @@ m = folium.Map(
     tiles='cartodbpositron',
     
 )
-try:
-    for i in emd['features']:
-        if i['properties']['temp'].startswith('천안시'):
-            folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+# try:
+#     for i in emd['features']:
+#         if i['properties']['temp'].startswith('천안시'):
+#             folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
     
-except Exception as e:
-    print(e)
+# except Exception as e:
+#     print(e)
 
-st.map(m)
+# st.map(m)
