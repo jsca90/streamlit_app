@@ -1,5 +1,4 @@
 import streamlit as st
-from streamlit_folium import st_folium
 import folium
 import requests
 import json
@@ -24,4 +23,4 @@ try:
 except Exception as e:
     print(e)
 
-st_folium(m, width = 725)
+st.map(m)
