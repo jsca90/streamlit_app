@@ -28,7 +28,7 @@ try:
       folium.GeoJson( i, tooltip=i['properties']['temp'] ).add_to(m)
 #     for i in emd['features']:
 #         if i['properties']['temp'].startswith('천안시'):
-#             folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+#             folium.GeoJson( i , tooltip=i['properties']['temp'].split()[1].replace(" ","")).add_to(m)
 #       folium.GeoJson( emd,  ).add_to(m)
     
 except Exception as e:
