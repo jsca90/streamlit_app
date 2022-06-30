@@ -19,7 +19,7 @@ st.write("천안시 Geo_Json")
 
 m = folium.Map(
     location=[36.8044654, 127.2274944],
-    zoom_start=12, 
+    zoom_start=11, 
     tiles='cartodbpositron',
     
 )
