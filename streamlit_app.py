@@ -6,7 +6,7 @@ from streamlit_folium import st_folium
 
 # @st.cache
 # def load_data():
-r = requests.get('https://raw.githubusercontent.com/vuski/admdongkor/master/ver20220401/HangJeongDong_ver20220401.geojson')
+r = requests.get('https://raw.githubusercontent.com/jsca90/streamlit_app/main/cheonan.json')
 c = r.content
 emd = json.loads(c)
     # return emd
@@ -24,9 +24,10 @@ m = folium.Map(
     
 )
 try:
-    for i in emd['features']:
-        if i['properties']['temp'].startswith('천안시'):
-            folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+#     for i in emd['features']:
+#         if i['properties']['temp'].startswith('천안시'):
+#             folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
+      folium.GeoJson( dic,  ).add_to(m)
     
 except Exception as e:
     print(e)
