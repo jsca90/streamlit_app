@@ -27,7 +27,7 @@ try:
 #     for i in emd['features']:
 #         if i['properties']['temp'].startswith('천안시'):
 #             folium.GeoJson( i , tooltip=i['properties']['temp']).add_to(m)
-      folium.GeoJson( dic,  ).add_to(m)
+      folium.GeoJson( emd,  ).add_to(m)
     
 except Exception as e:
     print(e)
