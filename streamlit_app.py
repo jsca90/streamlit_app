@@ -2,7 +2,7 @@ import streamlit as st
 
 
 start = st.date_input(label='Start: ',
-              value=datetime.datetime(year=2022, month=5, day=20, hour=16, minute=30),
+              value=None,
               key='#start',
               help="The start date time",
                       on_change=lambda : None)
