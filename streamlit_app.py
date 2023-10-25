@@ -8,10 +8,12 @@ col1, col2, col3 = st.columns([3,1,1])
 
 # Using 'with' notation:
 with col1:
-  st.date_input('Date input')
+  a = st.date_input('Date input')
+  a
 
 with col2:
-  st.date_input('Date input')
+  r = st.date_input('Date input')
+  r
 
 with col3:
   st.text('g')
