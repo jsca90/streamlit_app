@@ -12,4 +12,4 @@ end = st.date_input(label='End: ',
               key='#end',
               help="The end date time",
                     on_change=lambda : None)
-# st.write('Start: ', start, "End: ", end)
+st.write('Start: ', start, "End: ", end)
