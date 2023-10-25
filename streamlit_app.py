@@ -7,9 +7,9 @@ start = st.date_input(label='Start: ',
               help="The start date time",
                       on_change=lambda : None)
 
-# end = st.date_input(label='End: ',
-#               value=datetime.datetime(year=2022, month=5, day=30, hour=16, minute=30),
-#               key='#end',
-#               help="The end date time",
-#                     on_change=lambda : None)
+end = st.date_input(label='End: ',
+              value=None,
+              key='#end',
+              help="The end date time",
+                    on_change=lambda : None)
 # st.write('Start: ', start, "End: ", end)
